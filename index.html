@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ms" data-tema="ungu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Photobooth – Majlis Apresiasi Murid Cemerlang SK Sungai Setar 2026</title>
+<meta name="theme-color" content="#4a2380">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Photobooth SKSS">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SKRIN 1: UTAMA -->
+<main id="skrin-utama" class="skrin aktif">
+  <header class="kepala">
+    <img src="icons/icon-192.png" alt="Lambang sekolah" class="lambang">
+    <h1>Majlis Apresiasi<br>Murid Cemerlang</h1>
+    <p>Sekolah Kebangsaan Sungai Setar 2026</p>
+  </header>
+
+  <section>
+    <h2>Pilih warna</h2>
+    <div class="warna" role="radiogroup" aria-label="Pilih warna">
+      <button class="chip" data-warna="ungu" role="radio">Ungu</button>
+      <button class="chip" data-warna="biru" role="radio">Biru</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pilih bingkai</h2>
+    <div class="bingkai">
+      <button class="kad" data-bingkai="potret"><img alt="" data-prev="potret"><span>Potret</span></button>
+      <button class="kad" data-bingkai="landskap"><img alt="" data-prev="landskap"><span>Landskap</span></button>
+    </div>
+  </section>
+
+  <div class="pasang">
+    <button id="btn-pasang" hidden>Pasang aplikasi</button>
+    <p id="tip-ios" hidden>Untuk pasang di iPhone: tekan butang <b>Kongsi</b> (petak dengan anak panah) di Safari, kemudian pilih <b>Tambah ke Skrin Utama</b>.</p>
+  </div>
+</main>
+
+<!-- SKRIN 2: KAMERA -->
+<main id="skrin-kamera" class="skrin">
+  <div class="bar-atas">
+    <button id="btn-balik" class="ikon-teks">‹ Kembali</button>
+    <button id="btn-tukar" class="ikon-teks">Tukar kamera</button>
+  </div>
+  <div class="pentas"><canvas id="pratonton"></canvas>
+    <div id="kiraan" hidden></div><div id="kilat"></div>
+    <p id="ralat" hidden></p>
+  </div>
+  <div class="kawalan">
+    <label class="zum"><span>Zum</span><input id="zum" type="range" min="0.5" max="3" step="0.01" value="1" aria-label="Zum"></label>
+    <div class="baris">
+      <button id="btn-galeri" class="sekunder">Galeri</button>
+      <button id="btn-ambil" class="gelang" aria-label="Ambil gambar"><i></i></button>
+      <button id="btn-kamera" class="sekunder" hidden>Kamera</button>
+      <span class="ruang" id="ruang"></span>
+    </div>
+  </div>
+  <input id="fail" type="file" accept="image/*" hidden>
+</main>
+
+<!-- SKRIN 3: HASIL -->
+<main id="skrin-hasil" class="skrin">
+  <div class="pentas hasil"><img id="gambar-hasil" alt="Gambar anda dengan bingkai"></div>
+  <p id="status" class="status" aria-live="polite"></p>
+  <p id="tip-simpan" class="tip" hidden>Tip: dalam menu yang muncul, tekan <b>Simpan Imej</b> supaya gambar masuk ke aplikasi Foto.</p>
+  <div class="kawalan baris-besar">
+    <button id="btn-muat" class="utama">Muat Turun</button>
+    <button id="btn-semula" class="sekunder">Ambil Semula</button>
+  </div>
+</main>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
